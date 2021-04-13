@@ -15,9 +15,11 @@ read -p "ahora introduce el nombre del server ejemplo.com " server
 el el nombre de servidor es $server
 read -p "ahora introduce el alias  del server www.ejemplo.com " aliase
 el el nombre de servidor es $aliase
+read -p "ahora introduce la ip de el host " ip
+el el nombre de servidor es $ip
 echo instalando
 
- apt-get install apache2
+sudo apt-get install apache2
 
 echo comprobando instalacion
 
@@ -38,7 +40,12 @@ echo -e /t/t "DocumentRoot /var/www/$admin/public_html" >> /etc/apache2/sites-av
 echo -e /t/t "ErrorLog ${APACHE_LOG_DIR}/error.log" >> /etc/apache2/sites-available/$server.conf 
 echo -e /t/t "CustomLog ${APACHE_LOG_DIR}/access.log combined" >> /etc/apache2/sites-available/$server.conf 
 echo "</VirtualHost>" >> /etc/apache2/sites-available/$server.conf
+a2ensite $server.conf
+a2dissite 000-default.conf
+systemctl restart apache2 
 
+echo -e /t $ip    localhost >>/etc/hosts
+echo -e /t $ip    $server >>/etc/hosts
 
 
 
