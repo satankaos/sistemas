@@ -34,7 +34,9 @@ echo "<VirtualHost *:80>" >> /etc/apache2/sites-available/$server.conf
 echo -e /t/t "ServerAdmin $admin"
 echo -e /t/t "Servername $server"
 echo -e /t/t "ServerAdmin $aliase"
-echo -e /t/t "DocumentRoot /var/www/$admin/"
+echo -e /t/t "DocumentRoot /var/www/$admin/public_html"
+echo -e /t/t "ErrorLog ${APACHE_LOG_DIR}/error.log"
+echo -e /t/t "CustomLog ${APACHE_LOG_DIR}/access.log combined"
 
 
 
