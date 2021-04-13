@@ -14,4 +14,11 @@ echo "4.Instalar Apache server"
 echo "5.Configurar Arapache "
 echo "6.Mostrar Host "
 echo "2.Actualizar Repositorios "
-read -p "introducir "
+read -p "introduzca la opcion por orden si no entiende  " opcion
+case $opcion in
+1)   ;
+2)   ;
+3)   ;
+4)  ;
+5)  ;
+6)  ;
