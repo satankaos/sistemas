@@ -31,6 +31,6 @@ cp index.html /var/www/$server/public_html
 
 cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/$server.conf 
 echo "<VirtualHost *:80>" >> /etc/apache2/sites-available/$server.conf 
-echo -e /t/t "ser"
+echo -e /t/t "servidor"
 
 ##sourse el.sh
