@@ -31,6 +31,12 @@ cp index.html /var/www/$server/public_html
 
 cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/$server.conf 
 echo "<VirtualHost *:80>" >> /etc/apache2/sites-available/$server.conf 
-echo -e /t/t "servidor"
+echo -e /t/t "ServerAdmin $admin"
+echo -e /t/t "Servername $server"
+echo -e /t/t "ServerAdmin $aliase"
+echo -e /t/t "DocumentRoot /var/www/$admin/"
+
+
+
 
 ##sourse el.sh
