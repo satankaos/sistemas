@@ -6,7 +6,8 @@ read -p "ahora introduce el gmail del admin: " admin
 echo el usuario es $admin
 read -p "ahora introduce el nombre del server ejemplo.com: " server
 echo el nombre de servidor es $server
-read -p "ahora introduce el alias  del server www.ejemplo.com: " aliase
+echo creando nombre de servidor
+ aliase=www.$server
 echo el nombre de servidor es $aliase
 read -p "ahora introduce la ip de el host: " ip
 echo el nombre de servidor es $ip
@@ -17,8 +18,8 @@ clear
 cat TITULO.TXT
 
 echo "1. Crear Carpetas Necesarias "
-echo "2.Actualizar Repositorios "
-echo "3.Actualizar Paquetes "
+echo "2. Actualizar Paquetes "
+echo "3. Actualizar Repositorios  "
 echo "4.Instalar Apache server"
 echo "5.Configurar Arapache "
 echo "6.Mostrar Host "
@@ -26,16 +27,29 @@ echo "0.Actualizar Repositorios "
 read -p "introduzca la opcion por orden si no entiende:  " opcion
 case $opcion in
 0);;
-1) chmod -R 755 /var/www
-
+1) 
+echo "Asignando permisos"
+echo "creando carpeta public_html"
+echo "Asignando permisos a la carpeta anterior"
+chmod -R 777 /var/www
  mkdir -p /var/www/$server/public_html
-
+chmod -R 777 /var/www
 cp index.html /var/www/$server/public_html;;
 
-2)   ;;
-3)   ;;
+2) sudo apt-get update ;;
+3)  sudo apt-get upgrade ;;
 4)  ;;
-5)  ;;
+5) echo -e "<VirtualHost *:80>\v" >> /etc/apache2/sites-available/$server.conf
+echo -e "\tServerAdmin $admin" >>/etc/apache2/sites-available/$server.conf 
+echo -e "\tServername $server" >>/etc/apache2/sites-available/$server.conf 
+echo -e "\tServerAdmin $aliase" >>/etc/apache2/sites-available/$server.conf 
+echo -e "\tDocumentRoot /var/www/$admin/public_html" >>/etc/apache2/sites-available/$server.conf 
+echo -e "\tErrorLog ${APACHE_LOG_DIR}/error.log" >>/etc/apache2/sites-available/$server.conf 
+echo -e "\tCustomLog ${APACHE_LOG_DIR}/access.log combined\v" >>/etc/apache2/sites-available/$server.conf 
+echo -e "</VirtualHost>" >> /etc/apache2/sites-available/$server.conf
+a2ensite $server.conf
+a2dissite 000-default.conf
+systemctl restart apache2  ;;
 6)  ;;
 
 esac
