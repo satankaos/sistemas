@@ -31,12 +31,13 @@ cp index.html /var/www/$server/public_html
 
 cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/$server.conf 
 echo "<VirtualHost *:80>" >> /etc/apache2/sites-available/$server.conf 
-echo -e /t/t "ServerAdmin $admin"
-echo -e /t/t "Servername $server"
-echo -e /t/t "ServerAdmin $aliase"
-echo -e /t/t "DocumentRoot /var/www/$admin/public_html"
-echo -e /t/t "ErrorLog ${APACHE_LOG_DIR}/error.log"
-echo -e /t/t "CustomLog ${APACHE_LOG_DIR}/access.log combined"
+echo -e /t/t "ServerAdmin $admin" >> /etc/apache2/sites-available/$server.conf 
+echo -e /t/t "Servername $server" >> /etc/apache2/sites-available/$server.conf 
+echo -e /t/t "ServerAdmin $aliase" >> /etc/apache2/sites-available/$server.conf 
+echo -e /t/t "DocumentRoot /var/www/$admin/public_html" >> /etc/apache2/sites-available/$server.conf 
+echo -e /t/t "ErrorLog ${APACHE_LOG_DIR}/error.log" >> /etc/apache2/sites-available/$server.conf 
+echo -e /t/t "CustomLog ${APACHE_LOG_DIR}/access.log combined" >> /etc/apache2/sites-available/$server.conf 
+echo "</VirtualHost>" >> /etc/apache2/sites-available/$server.conf
 
 
 
