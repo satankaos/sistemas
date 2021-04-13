@@ -1,13 +1,7 @@
 #!/bin/bash
 echo entrando a la instalacion de Apache 
 read -p "introduce tu nombre" nombre
-echo hola $nombre comencemos actualizando los paquetes quieres
-read -p "introduce s si quieres" actualizar
-if  [$actualizar == s]; then
-[sudo su 
-apt-get update 
-aptget upgrade]
-fi
+echo hola $nombre comencemos 
 echo -e /n ahora introduce el gmail del admin
 read -p "ahora introduce el gmail del admin" admin
 el usuario es $admin
