@@ -1,15 +1,14 @@
 #!/bin/bash
 
-read -p "introduce tu nombre" nombre
+read -p "introduce tu nombre: " nombre
 echo hola $nombre comencemos 
-echo -e /n ahora introduce el gmail del admin
-read -p "ahora introduce el gmail del admin" admin
+read -p "ahora introduce el gmail del admin: " admin
 el usuario es $admin
-read -p "ahora introduce el nombre del server ejemplo.com " server
+read -p "ahora introduce el nombre del server ejemplo.com: " server
 el el nombre de servidor es $server
-read -p "ahora introduce el alias  del server www.ejemplo.com " aliase
+read -p "ahora introduce el alias  del server www.ejemplo.com: " aliase
 el el nombre de servidor es $aliase
-read -p "ahora introduce la ip de el host " ip
+read -p "ahora introduce la ip de el host: " ip
 el el nombre de servidor es $ip
 cat TITULO.TXT
 echo "1. Crear Carpetas Necesarias "
