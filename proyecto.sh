@@ -49,7 +49,9 @@ echo -e "\tCustomLog ${APACHE_LOG_DIR}/access.log combined\v" >>/etc/apache2/sit
 echo -e "</VirtualHost>" >> /etc/apache2/sites-available/$server.conf
 a2ensite $server.conf
 a2dissite 000-default.conf
-systemctl restart apache2  ;;
+systemctl restart apache2  
+echo -e "$ip \t \t $server"
+;;
 6)
 echo " escribe $server en el buscador ";;
 
