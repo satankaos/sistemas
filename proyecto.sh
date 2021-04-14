@@ -53,6 +53,6 @@ systemctl restart apache2
 echo -e "$ip \t \t $server";;
 6)
 echo " escribe $server en el buscador ";;
-
+##############################
 esac
 done
