@@ -32,7 +32,7 @@ echo "Asignando permisos"
 echo "creando carpeta public_html"
 echo "Asignando permisos a la carpeta anterior"
 chmod -R 777 /var/www
- mkdir -p /var/www/$server/public_html
+mkdir -p /var/www/$server/public_html
 chmod -R 777 /var/www
 cp -RT copy /var/www/$server/public_html;;
 
@@ -50,8 +50,7 @@ echo -e "</VirtualHost>" >> /etc/apache2/sites-available/$server.conf
 a2ensite $server.conf
 a2dissite 000-default.conf
 systemctl restart apache2  
-echo -e "$ip \t \t $server"
-;;
+echo -e "$ip \t \t $server";;
 6)
 echo " escribe $server en el buscador ";;
 
