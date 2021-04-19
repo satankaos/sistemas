@@ -39,7 +39,9 @@ cp -RT copy /var/www/$server/public_html;;
 2) sudo apt-get update ;;
 3)  sudo apt-get upgrade ;;
 4)sudo apt install apache2 ;;
-5)  sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/$server.conf
+
+5) sudo chamod -R 777 /etc/ 
+sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/$server.conf
 echo -e "<VirtualHost *:80>\v" >> /etc/apache2/sites-available/$server.conf
 echo -e "\tServerAdmin $admin" >>/etc/apache2/sites-available/$server.conf 
 echo -e "\tServername $server" >>/etc/apache2/sites-available/$server.conf 
@@ -50,10 +52,9 @@ echo -e "\tCustomLog ${APACHE_LOG_DIR}/access.log combined\v" >>/etc/apache2/sit
 echo -e "</VirtualHost>" >> /etc/apache2/sites-available/$server.conf
 a2ensite $server.conf
 a2dissite 000-default.conf
-systemctl restart apache2  
-echo -e "$ip \t \t $server";;
+systemctl restart apache2 
+echo -e "$ip \t \t $server" >> /etc/hosts;;
 6)
-echo " escribe $server en el buscador ";;
-##############################
+echo " escribe $server o $ip en el buscador " ;;
 esac
 done
