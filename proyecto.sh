@@ -38,20 +38,26 @@ mkdir -p /var/www/$server/public_html
 chmod -R 777 /var/www
 cp -RT copy /var/www/$server/public_html ;;
 
-5) sudo chamod -R 777 /etc/ 
-sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/$server.conf
-echo -e "<VirtualHost *:80>\v" >> /etc/apache2/sites-available/$server.conf
-echo -e "\tServerAdmin $admin" >>/etc/apache2/sites-available/$server.conf 
-echo -e "\tServername $server" >>/etc/apache2/sites-available/$server.conf 
-echo -e "\tServerAdmin $aliase" >>/etc/apache2/sites-available/$server.conf 
-echo -e "\tDocumentRoot /var/www/$admin/public_html" >>/etc/apache2/sites-available/$server.conf 
-echo -e "\tErrorLog ${APACHE_LOG_DIR}/error.log" >>/etc/apache2/sites-available/$server.conf 
-echo -e "\tCustomLog ${APACHE_LOG_DIR}/access.log combined\v" >>/etc/apache2/sites-available/$server.conf 
-echo -e "</VirtualHost>" >> /etc/apache2/sites-available/$server.conf
-a2ensite $server.conf
-a2dissite 000-default.conf
-systemctl restart apache2 
-echo -e "$ip \t \t $server" >> /etc/hosts;;
+5) cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/pag.conf
+chmod -R 777 /etc/apache2/sites-available
+ 
+echo -e "<VirtualHost *:80>">>/etc/apache2/sites-available/pag.conf
+
+echo -e "\tServerAdmin $admin">>/etc/apache2/sites-available/pag.conf
+ 
+echo -e "\tServername $server">>/etc/apache2/sites-available/pag.conf
+ 
+echo -e "\tServerAdmin $aliase">>/etc/apache2/sites-available/pag.conf 
+
+echo -e "\tDocumentRoot /var/www/server">>/etc/apache2/sites-available/pag.conf
+ 
+echo -e "\tErrorLog ${APACHE_LOG_DIR}/error.log">>/etc/apache2/sites-available/pag.conf
+ 
+echo -e "\tCustomLog ${APACHE_LOG_DIR}/access.log combined">>/etc/apache2/sites-available/pag.conf
+ 
+echo -e "</VirtualHost>">>/etc/apache2/sites-available/pag.conf
+echo -e "# vim: syntax=apache ts=4 sw=4 sts=4 sr noet">>/etc/apache2/sites-available/pag.conf;;
+
 6)
 echo " escribe $server o $ip en el buscador " ;;
 esac
