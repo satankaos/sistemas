@@ -55,8 +55,7 @@ echo -e "\tErrorLog ${APACHE_LOG_DIR}/error.log">>/etc/apache2/sites-available/p
  
 echo -e "\tCustomLog ${APACHE_LOG_DIR}/access.log combined">>/etc/apache2/sites-available/pag.conf
  
-echo -e "</VirtualHost>">>/etc/apache2/sites-available/pag.conf
-echo -e "# vim: syntax=apache ts=4 sw=4 sts=4 sr noet">>/etc/apache2/sites-available/pag.conf;;
+echo -e "</VirtualHost>">>/etc/apache2/sites-available/pag.conf;;
 
 6)
 echo " escribe $server o $ip en el buscador " ;;
